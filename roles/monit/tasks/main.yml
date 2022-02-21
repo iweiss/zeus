@@ -110,6 +110,8 @@
     owner: root
     group: root
   with_items: "{{ remote_http_services }}"
+  when:
+    - monit_http_services is defined
 
 # this assume nginx is being used and installed, it would be cleaner to have a "if" here.
 - name: "Deploy credentials for monit app"
