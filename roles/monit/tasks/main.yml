@@ -32,6 +32,8 @@
     owner: root
     group: root
   with_items: "{{ dnsnames }}"
+  when:
+    - monit_ping_enabled is defined
 
 - name: "Set up Monit alert on disk usage"
   template:
